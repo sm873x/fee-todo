@@ -1,4 +1,25 @@
 body {
     background-color: $backgroundColor;
     font-family: $primaryFont;
+    position: relative;
+    text-align: center;
+}
+
+main {
+    border: $mainBorder;
+    position: relative;
+    margin: 0 auto;
+
+}
+
+nav {
+    position: relative;
+
+    ul {
+        list-style: none;
+    }
+
+    li {
+        display: inline;
+    }
 }

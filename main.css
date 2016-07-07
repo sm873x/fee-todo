@@ -362,6 +362,20 @@ textarea {
 
 body {
   background-color: #f5f5f5;
-  font-family: "Roboto Condensed", Helvetica, Arial, sans-serif; }
+  font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
+  position: relative;
+  text-align: center; }
+
+main {
+  border: 2px solid #000000;
+  position: relative;
+  margin: 0 auto; }
+
+nav {
+  position: relative; }
+  nav ul {
+    list-style: none; }
+  nav li {
+    display: inline; }
 
 /*# sourceMappingURL=main.css.map */
