@@ -24,6 +24,13 @@ header {
 
 
 footer {
+    position: relative;;
+
+    &::after {
+        clear: both;
+        content: '';
+        display: table;
+    }
 
     .remaining {
         float: left;
@@ -47,6 +54,6 @@ nav {
     }
 
     li {
-        display: inline;
+        float: left;
     }
 }

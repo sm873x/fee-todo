@@ -379,12 +379,18 @@ header h1 {
   color: #ead8d8;
   font-weight: lighter; }
 
-footer .remaining {
-  float: left; }
-footer .clear {
-  float: right;
-  clear: right;
-  margin-top: 10px; }
+footer {
+  position: relative; }
+  footer::after {
+    clear: both;
+    content: '';
+    display: table; }
+  footer .remaining {
+    float: left; }
+  footer .clear {
+    float: right;
+    clear: right;
+    margin-top: 10px; }
 
 nav {
   position: relative;
@@ -392,7 +398,7 @@ nav {
   nav ul {
     list-style: none; }
   nav li {
-    display: inline; }
+    float: left; }
 
 .new-todo {
   font-style: italic;
