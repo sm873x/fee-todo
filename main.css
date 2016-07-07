@@ -1,4 +1,4 @@
-/*! normalize.css v4.0.0 | MIT License | github.com/necolas/normalize.css */
+j/*! normalize.css v4.0.0 | MIT License | github.com/necolas/normalize.css */
 /**
  * 1. Change the default font family in all browsers (opinionated).
  * 2. Prevent adjustments of font size after orientation changes in IE and iOS.
@@ -363,7 +363,8 @@ textarea {
 body {
   background-color: #f5f5f5;
   font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
-  position: relative; }
+  position: relative;
+  text-align: center; }
 
 main {
   border: #eee;
@@ -378,18 +379,21 @@ header h1 {
   color: #ead8d8;
   font-weight: lighter; }
 
-footer::after {
-  clear: both;
-  content: '';
-  display: table; }
-footer .remaining {
-  float: left; }
-footer .clear {
-  float: right;
-  clear: right;
-  margin-top: 10px; }
+footer {
+  position: relative; }
+  footer::after {
+    clear: both;
+    content: '';
+    display: table; }
+  footer .remaining {
+    float: left; }
+  footer .clear {
+    float: right;
+    clear: right;
+    margin-top: 10px; }
 
 nav {
+  position: relative;
   float: left; }
   nav ul {
     list-style: none; }
@@ -401,14 +405,5 @@ nav {
   font-size: 20px;
   width: 476px;
   padding: 10px; }
-
-.items {
-  list-style: none; }
-
-article button, article p, article input {
-  display: inline; }
-
-.complete {
-  text-decoration: line-through; }
 
 /*# sourceMappingURL=main.css.map */
