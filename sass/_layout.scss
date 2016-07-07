@@ -2,7 +2,6 @@ body {
     background-color: $backgroundColor;
     font-family: $primaryFont;
     position: relative;
-    text-align: center;
 }
 
 main {
@@ -24,7 +23,6 @@ header {
 
 
 footer {
-    position: relative;;
 
     &::after {
         clear: both;
@@ -46,7 +44,7 @@ footer {
 }
 
 nav {
-    position: relative;
+
     float: left;
 
     ul {

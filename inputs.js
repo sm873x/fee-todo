@@ -3,7 +3,11 @@
 
     window.todo = ns = ( ns || {} );
 
-//TODO input form - when 'enter' 
+//TODO input form - when 'enter'
+
+// 
+// $('form').addEventListener('enter', function ());
+// console.log(enter);
 
 
 

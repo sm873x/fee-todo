@@ -363,8 +363,7 @@ textarea {
 body {
   background-color: #f5f5f5;
   font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
-  position: relative;
-  text-align: center; }
+  position: relative; }
 
 main {
   border: #eee;
@@ -379,21 +378,18 @@ header h1 {
   color: #ead8d8;
   font-weight: lighter; }
 
-footer {
-  position: relative; }
-  footer::after {
-    clear: both;
-    content: '';
-    display: table; }
-  footer .remaining {
-    float: left; }
-  footer .clear {
-    float: right;
-    clear: right;
-    margin-top: 10px; }
+footer::after {
+  clear: both;
+  content: '';
+  display: table; }
+footer .remaining {
+  float: left; }
+footer .clear {
+  float: right;
+  clear: right;
+  margin-top: 10px; }
 
 nav {
-  position: relative;
   float: left; }
   nav ul {
     list-style: none; }
@@ -405,5 +401,8 @@ nav {
   font-size: 20px;
   width: 476px;
   padding: 10px; }
+
+.items article button, .items article p, .items article input {
+  display: inline; }
 
 /*# sourceMappingURL=main.css.map */
