@@ -1,7 +1,14 @@
 .items {
-    article {
-        button, p, input {
-            display: inline;
-        }
+    list-style: none;
+}
+
+article {
+
+    button, p, input {
+        display: inline;
     }
+}
+
+.complete {
+    text-decoration: line-through;
 }

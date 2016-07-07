@@ -402,7 +402,13 @@ nav {
   width: 476px;
   padding: 10px; }
 
-.items article button, .items article p, .items article input {
+.items {
+  list-style: none; }
+
+article button, article p, article input {
   display: inline; }
+
+.complete {
+  text-decoration: line-through; }
 
 /*# sourceMappingURL=main.css.map */
