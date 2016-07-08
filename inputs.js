@@ -13,6 +13,9 @@
     });
 
     //Creates new list item
+
+    var itemList = [];
+
     function addNewItem(newInput) {
         var li = '<li></li>';
         var article = '<article class="openItem"></article>';
@@ -25,20 +28,22 @@
             .find('li:last-child')
                 .append(article)
                 .find('.openItem')
-                    .append(checkButton + para + delButton);
+                    .append(checkButton + para + delButton)
+                    .find('.delete')
+                        .hide();
     }
 
 
     //Edit item inline
-    $('.items').on('click', '.openItem', editItem);
+    $('.items').on('click', '.openItem p', editItem);
 
-    function editItem() {
+    function editItem(e) {
         console.log('clicked');
         var input = '<input type="text" class="edit-todo"></input>';
-        $('.openItem p')
+        $(this)
             .replaceWith(input);
     }
 
-    
+
 
 })(window.todo, window.jQuery);
