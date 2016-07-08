@@ -29,8 +29,8 @@
                 .append(article)
                 .find('.openItem')
                     .append(checkButton + para + delButton)
-                    .find('.delete')
-                        .hide();
+                    // .find('.delete')
+                    //     .hide();
     }
 
 
@@ -40,10 +40,17 @@
     function editItem(e) {
         console.log('clicked');
         var input = '<input type="text" class="edit-todo"></input>';
-        $(this)
-            .replaceWith(input);
+        $(this).replaceWith(input);
     }
 
+    //Delete item
+    $('.items').on('click', '.delete', function (){
+            $(this)
+                .parent()
+                .remove();
+            confirm('You sure about that? Click OK to proceed.');
+        }
+    );
 
 
 })(window.todo, window.jQuery);
