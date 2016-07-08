@@ -4,7 +4,6 @@
     window.todo = ns = ( ns || {} );
 
     //Form input - when 'enter'
-
     $('form').on( 'submit', function (e) {
         e.preventDefault();
         var newInput = $('.new-todo').val();
@@ -13,7 +12,6 @@
     });
 
     //Creates new list item
-
     ns.itemList = [];
 
     function addNewItem(newInput) {
@@ -26,9 +24,9 @@
         ns.itemList.push({
             complete: false,
             text: newInput,
-            dateCreated: Date.now()
+            timeStamp: Date.now(),
+            edited: false
         });
-
 
         $('.items')
             .append(li)
@@ -45,11 +43,24 @@
     //Edit item inline
     $('.items').on('click', '.openItem p', editItem);
 
+    $('.items').on( 'keypress', '.edit-todo', function (e) {
+        if ( e.keyCode === 13) {
+            console.log('enter');
+            var prevText = $(this).val();
+        
+        }
+    });
+
     function editItem(e) {
         console.log('clicked');
-        var input = '<input type="text" class="edit-todo"></input>';
-        $(this).replaceWith(input);
+        var input = '<input type="text" class="edit-todo" value=' + this.innerText + '>';
+        $(this)
+            .replaceWith(input)
+        console.log( this );
+
     }
+
+
 
     //Delete item
     $('.items').on('click', '.delete', function (){
@@ -57,6 +68,7 @@
                 .parent()
                 .remove();
             confirm('You sure about that? Click OK to proceed.');
+            ns.itemList.splice($.inArray)
         }
     );
 
