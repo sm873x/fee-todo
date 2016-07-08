@@ -3,11 +3,24 @@
 
     window.todo = ns = ( ns || {} );
 
-//TODO input form - when 'enter'
+    //TODO input form - when 'enter'
 
-// 
-// $('form').addEventListener('enter', function ());
-// console.log(enter);
+    $('form').on( 'submit', function (e) {
+        e.preventDefault();
+        var newInput = $('.new-todo').val();
+        addNewItem(newInput);
+
+    });
+
+    console.log(newInput);
+
+    function addNewItem(newInput) {
+        $('.items').append('<li>' + newInput + '</li>');
+    }
+
+
+    console.log( $('form') );
+
 
 
 
