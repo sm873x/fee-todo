@@ -14,7 +14,7 @@
 
     //Creates new list item
 
-    var itemList = [];
+    ns.itemList = [];
 
     function addNewItem(newInput) {
         var li = '<li></li>';
@@ -22,6 +22,13 @@
         var checkButton = '<button class="check"></button>';
         var para = '<p>' + newInput + '</p>';
         var delButton = '<button class="delete">X</button>';
+
+        ns.itemList.push({
+            complete: false,
+            text: newInput,
+            dateCreated: Date.now()
+        });
+
 
         $('.items')
             .append(li)
@@ -31,6 +38,7 @@
                     .append(checkButton + para + delButton)
                     // .find('.delete')
                     //     .hide();
+
     }
 
 
@@ -51,6 +59,8 @@
             confirm('You sure about that? Click OK to proceed.');
         }
     );
+
+
 
 
 })(window.todo, window.jQuery);
