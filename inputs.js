@@ -46,14 +46,18 @@
     $('.items').on( 'keypress', '.edit-todo', function (e) {
         if ( e.keyCode === 13) {
             console.log('enter');
-            var prevText = $(this).val();
-        
+            var newText = $(this).val();
+            console.log(newText);
+            $(this)
+                .replaceWith('<p>' + newText + '</p>');
+
         }
     });
 
     function editItem(e) {
         console.log('clicked');
         var input = '<input type="text" class="edit-todo" value=' + this.innerText + '>';
+
         $(this)
             .replaceWith(input)
         console.log( this );
