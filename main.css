@@ -414,4 +414,9 @@ article button, article p, article input {
 .complete {
   text-decoration: line-through; }
 
+.delete {
+  opacity: 0; }
+  .delete:hover {
+    opacity: 1; }
+
 /*# sourceMappingURL=main.css.map */

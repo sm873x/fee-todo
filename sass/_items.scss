@@ -13,3 +13,11 @@ article {
 .complete {
     text-decoration: line-through;
 }
+
+.delete {
+    opacity: 0;
+
+    &:hover {
+    opacity: 1;
+    }
+}

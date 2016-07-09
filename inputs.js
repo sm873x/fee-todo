@@ -21,22 +21,19 @@
         var para = '<p>' + newInput + '</p>';
         var delButton = '<button class="delete">X</button>';
 
-        ns.itemList.push({
-            complete: false,
-            text: newInput,
-            timeStamp: Date.now(),
-            edited: false
-        });
-
         $('.items')
             .append(li)
             .find('li:last-child')
                 .append(article)
                 .find('.openItem')
                     .append(checkButton + para + delButton)
-                    // .find('.delete')
-                    //     .hide();
 
+        ns.itemList.push({
+            complete: false,
+            text: newInput,
+            timeStamp: Date.now(),
+            edited: false
+        });
     }
 
 
@@ -45,11 +42,16 @@
 
     $('.items').on( 'keypress', '.edit-todo', function (e) {
         if ( e.keyCode === 13) {
-            console.log('enter');
+            // console.log('enter');
             var newText = $(this).val();
-            console.log(newText);
+            var indexNum = $.inArray('', ns.listItem);
+            // console.log(newText);
             $(this)
                 .replaceWith('<p>' + newText + '</p>');
+            // 
+            // $.each(ns.itemlist, function(){
+            //     if
+            // });
 
         }
     });
@@ -60,7 +62,8 @@
 
         $(this)
             .replaceWith(input)
-        console.log( this );
+
+        // console.log( this );
 
     }
 
