@@ -57,15 +57,23 @@
             $(this)
                 .replaceWith('<p class="todoText">' + newText + '</p>');
 
-            // $.each(ns.itemlist, function(){
-            //     if
-            // });
+            var todoText = $(event.target)
+                .closest('.openItem')
+                    .toggleClass('complete')
+                    .find('.todoText')
+                        .text();
 
+            $.each(ns.itemList, function(i, todotext) {
+                if (ns.itemList[i].text === todoText) {
+                    ns.itemList[i].complete = !ns.itemList[i].complete;
+                    console.log(ns.itemList[i]);
+                }
+            });
         }
     });
 
     function editItem(e) {
-        console.log('clicked');
+        //console.log('clicked');
         var input = '<input type="text" class="edit-todo" value=' + this.innerText + '>';
 
         $(this)
@@ -81,14 +89,12 @@
                 .find('.todoText')
                     .text();
 
-        //jquery method to do for loop in easier format: look up
-        var i;
-        for (i=0; i < ns.itemList.length; i++) {
+        $.each(ns.itemList, function(i, todotext) {
             if (ns.itemList[i].text === todoText) {
                 ns.itemList[i].complete = !ns.itemList[i].complete;
                 console.log(ns.itemList[i]);
             }
-        }
+        });
 
     });
 
