@@ -419,4 +419,7 @@ article button, article p, article input {
   .delete:hover {
     opacity: 1; }
 
+.check {
+  background: yellow; }
+
 /*# sourceMappingURL=main.css.map */

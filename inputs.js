@@ -27,7 +27,7 @@
         var li = '<li></li>';
         var article = '<article class="openItem"></article>';
         var checkButton = '<button class="check"></button>';
-        var para = '<p>' + newInput + '</p>';
+        var para = '<p class="todoText">' + newInput + '</p>';
         var delButton = '<button class="delete">X</button>';
 
         $('.items')
@@ -41,13 +41,8 @@
             complete: false,
             text: newInput,
             timeStamp: Date.now(),
-            edited: false
         });
         console.log(ns.itemList);
-
-
-
-
     }
 
     //Edit item inline
@@ -60,7 +55,7 @@
             var indexNum = $.inArray('', ns.listItem);
             // console.log(newText);
             $(this)
-                .replaceWith('<p>' + newText + '</p>');
+                .replaceWith('<p class="todoText">' + newText + '</p>');
 
             // $.each(ns.itemlist, function(){
             //     if
@@ -75,20 +70,48 @@
 
         $(this)
             .replaceWith(input)
-
-        // console.log( this );
-
     }
 
+    //Complete item
+    $('.items').on('click', '.check', function(e) {
+
+        var todoText = $(event.target)
+            .closest('.openItem')
+                .toggleClass('complete')
+                .find('.todoText')
+                    .text();
+
+        //jquery method to do for loop in easier format: look up
+        var i;
+        for (i=0; i < ns.itemList.length; i++) {
+            if (ns.itemList[i].text === todoText) {
+                ns.itemList[i].complete = !ns.itemList[i].complete;
+                console.log(ns.itemList[i]);
+            }
+        }
+
+    });
 
 
     //Delete item
-    $('.items').on('click', '.delete', function (){
+    $('.items').on('click', '.delete', function (e){
             $(this)
                 .parent()
                 .remove();
             confirm('You sure about that? Click OK to proceed.');
-            ns.itemList.splice($.inArray)
+
+            var todoText = $(event.target)
+                .closest('.openItem')
+                    .find('.todoText')
+                        .text();
+
+            var i;
+            for (i=0; i < ns.itemList.length; i++) {
+                if (ns.itemList[i].text === todoText) {
+                    ns.itemList.splice(i,1);
+                    console.log(ns.itemList);
+                }
+            }
         }
     );
 
