@@ -6,9 +6,18 @@
     //Form input - when 'enter'
     $('form').on( 'submit', function (e) {
         e.preventDefault();
+
         var newInput = $('.new-todo').val();
         addNewItem(newInput);
+
         $('.new-todo').val('');
+
+        //add new todo item to incomplete counter
+        var preVal = Number( $('.incomplete-items').val() );
+        $('.incomplete-items')
+            .val(preVal + 1)
+            .text((preVal + 1).toString());
+        console.log(preVal);
     });
 
     //Creates new list item
@@ -34,8 +43,12 @@
             timeStamp: Date.now(),
             edited: false
         });
-    }
+        console.log(ns.itemList);
 
+
+
+
+    }
 
     //Edit item inline
     $('.items').on('click', '.openItem p', editItem);
@@ -48,7 +61,7 @@
             // console.log(newText);
             $(this)
                 .replaceWith('<p>' + newText + '</p>');
-            // 
+
             // $.each(ns.itemlist, function(){
             //     if
             // });
