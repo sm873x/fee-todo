@@ -22,6 +22,9 @@
         $('.complete').show();
     });
 
+    $('.clear').on( 'click', function(e) {
+        $('.complete').remove();
+    });
 
 
 })(window.todo, window.jQuery);
