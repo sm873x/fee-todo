@@ -424,5 +424,7 @@ article button, article p, article input {
   height: 30px;
   border-radius: 15px;
   background: #f5f5f5; }
+  .check i {
+    opacity: 0; }
 
 /*# sourceMappingURL=main.css.map */

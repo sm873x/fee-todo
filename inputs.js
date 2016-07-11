@@ -3,16 +3,19 @@
 
     window.todo = ns = ( ns || {} );
 
+    /**
+     * [Increments incomplete todo items counter when new list item added]
+     * @return {voic}
+     */
     function incompleteCounter() {
-        //add new todo item to incomplete counter
+
          var numIncomplete = $.grep(ns.itemList, function(elem) {
              return !elem.complete;
          }).length;
-         //console.log(numIncomplete);
+
         $('.incomplete-items').text(numIncomplete);
     }
 
-    //Form input - when 'enter'
     $('form').on( 'submit', function (e) {
         e.preventDefault();
 
@@ -25,13 +28,16 @@
 
     });
 
-    //Creates new list item
     ns.itemList = [];
 
+    /**
+     * [Creates new list item with all elements]
+     * @param {string} newInput [new edited text of list item]
+     */
     function addNewItem(newInput) {
         var li = '<li></li>';
         var article = '<article class="openItem"></article>';
-        var checkButton = '<button class="check"></button>';
+        var checkButton = '<button class="check"><i class="fa fa-check" aria-hidden="true"></i></button>';
         var para = '<p class="todoText">' + newInput + '</p>';
         var delButton = '<button class="delete">X</button>';
 
@@ -50,15 +56,14 @@
         console.log(ns.itemList);
     }
 
-    //Edit item inline
     $('.items').on('click', '.openItem p', editItem);
 
     $('.items').on( 'keypress', '.edit-todo', function (e) {
         if ( e.keyCode === 13) {
-            // console.log('enter');
+            console.log('enter');
             var newText = $(this).val();
 
-            // console.log(newText);
+            console.log(newText);
             $(this)
                 .replaceWith('<p class="todoText">' + newText + '</p>');
 
@@ -76,14 +81,18 @@
         }
     });
 
+    /**
+     * [When editing item, click on text will create new input box with previous text within it]
+     * @param  {event} e [click]
+     * @return {voic}
+     */
     function editItem(e) {
-        //console.log('clicked');
+        console.log('clicked');
         var input = '<input type="text" class="edit-todo" value=' + this.innerText + '>';
 
         $(this).replaceWith(input);
     }
 
-    //Complete item
     $('.items').on('click', '.check', function(e) {
 
         var todoText = $(event.target)
@@ -95,15 +104,32 @@
         $.each(ns.itemList, function(i, todotext) {
             if (ns.itemList[i].text === todoText) {
                 ns.itemList[i].complete = !ns.itemList[i].complete;
-                // $('.incomplete-items').text(ns.itemList.length - 1);
                 console.log(ns.itemList[i]);
             }
         });
 
+        checkMark();
     });
 
+    /**
+     * [Reveal or hide checkmark when clicking on check button]
+     * @return {void}
+     */
+    function checkMark() {
+        var checkMark = $('.check i').css('opacity');
+        console.log(checkMark);
 
-    //Delete item
+        if (checkMark === 0) {
+            $(this)
+                .find('i')
+                .css('opacity', 1);
+        } else if (checkMark === 1) {
+            $(this)
+                .find('i')
+                .css('opacity', 0);
+        }
+    }
+
     $('.items').on('click', '.delete', function (e){
             $(this)
                 .parent()
@@ -127,8 +153,5 @@
             $('.incomplete-items').text(ns.itemList.length);
         }
     );
-
-
-
 
 })(window.todo, window.jQuery);

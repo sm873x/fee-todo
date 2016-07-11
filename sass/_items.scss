@@ -27,4 +27,8 @@ article {
     height:30px;
     border-radius:15px;
     background:$backgroundColor;
+
+    i {
+        opacity: 0;
+    }
 }
