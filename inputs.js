@@ -3,6 +3,15 @@
 
     window.todo = ns = ( ns || {} );
 
+    function incompleteCounter() {
+        //add new todo item to incomplete counter
+         var numIncomplete = $.grep(ns.itemList, function(elem) {
+             return !elem.complete;
+         }).length;
+         //console.log(numIncomplete);
+        $('.incomplete-items').text(numIncomplete);
+    }
+
     //Form input - when 'enter'
     $('form').on( 'submit', function (e) {
         e.preventDefault();
@@ -12,8 +21,8 @@
 
         $('.new-todo').val('');
 
-        //add new todo item to incomplete counter
-         $('.incomplete-items').text(ns.itemList.length);
+        incompleteCounter();
+
     });
 
     //Creates new list item
@@ -86,7 +95,7 @@
         $.each(ns.itemList, function(i, todotext) {
             if (ns.itemList[i].text === todoText) {
                 ns.itemList[i].complete = !ns.itemList[i].complete;
-                //$('.incomplete-items').text(ns.itemList.length - 1);
+                // $('.incomplete-items').text(ns.itemList.length - 1);
                 console.log(ns.itemList[i]);
             }
         });
