@@ -5,7 +5,7 @@
 
     /**
      * [Increments incomplete todo items counter when new list item added]
-     * @return {voic}
+     * @return {void}
      */
     function incompleteCounter() {
 
