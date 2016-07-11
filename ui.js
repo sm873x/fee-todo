@@ -3,23 +3,25 @@
 
     window.todo = ns = ( ns || {} );
 
-    // Show ALL
-    // $('.show-all active').on( 'click', function(e) {
-    //     $('.items').fadeIn('.completed', '.openItem');
-    // });
-
     //Show ACTIVE only
     $('.show-active').on( 'click', function(e) {
-        //$('.openItem').css('opacity', '1');
-        $('.complete').css('display', 'none');
-        // $('.items').fadeOut('.complete');
-        // $('.items').fadeIn('.openItem');
+        $('.openItem').show();
+        $('.complete').hide();
     });
 
     //Show COMPLETED only
-    // $('.show-completed').on( 'click', function(e) {
-    //     // $('.items').fadeOut('.openItem');
-    //     // $('.items').fadeIn('.complete');
-    // });
+    $('.show-completed').on( 'click', function(e) {
+        $('.openItem').hide();
+        $('.complete').show();
+    });
+
+    //Show ALL
+    $('.show-all-active').on( 'click', function(e) {
+        //console.log('click');
+        $('.openItem').show();
+        $('.complete').show();
+    });
+
+
 
 })(window.todo, window.jQuery);
