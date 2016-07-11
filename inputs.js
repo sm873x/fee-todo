@@ -13,11 +13,7 @@
         $('.new-todo').val('');
 
         //add new todo item to incomplete counter
-        var preVal = Number( $('.incomplete-items').val() );
-        $('.incomplete-items')
-            .val(preVal + 1)
-            .text((preVal + 1).toString());
-        console.log(preVal);
+         $('.incomplete-items').text(ns.itemList.length);
     });
 
     //Creates new list item
@@ -52,21 +48,20 @@
         if ( e.keyCode === 13) {
             // console.log('enter');
             var newText = $(this).val();
-            var indexNum = $.inArray('', ns.listItem);
+
             // console.log(newText);
             $(this)
                 .replaceWith('<p class="todoText">' + newText + '</p>');
 
-            var todoText = $(event.target)
+            var todoText = $(this)
                 .closest('.openItem')
-                    .toggleClass('complete')
                     .find('.todoText')
                         .text();
-
+            console.log(todoText);
             $.each(ns.itemList, function(i, todotext) {
                 if (ns.itemList[i].text === todoText) {
-                    ns.itemList[i].complete = !ns.itemList[i].complete;
-                    console.log(ns.itemList[i]);
+                    ns.itemList[i].text = newText;
+                    console.log(ns.itemList);
                 }
             });
         }
@@ -76,8 +71,7 @@
         //console.log('clicked');
         var input = '<input type="text" class="edit-todo" value=' + this.innerText + '>';
 
-        $(this)
-            .replaceWith(input)
+        $(this).replaceWith(input);
     }
 
     //Complete item
@@ -92,6 +86,7 @@
         $.each(ns.itemList, function(i, todotext) {
             if (ns.itemList[i].text === todoText) {
                 ns.itemList[i].complete = !ns.itemList[i].complete;
+                //$('.incomplete-items').text(ns.itemList.length - 1);
                 console.log(ns.itemList[i]);
             }
         });
@@ -104,6 +99,7 @@
             $(this)
                 .parent()
                 .remove();
+
             confirm('You sure about that? Click OK to proceed.');
 
             var todoText = $(event.target)
@@ -111,13 +107,15 @@
                     .find('.todoText')
                         .text();
 
-            var i;
-            for (i=0; i < ns.itemList.length; i++) {
+            for(var i=0; i<ns.itemList.length; i++) {
                 if (ns.itemList[i].text === todoText) {
                     ns.itemList.splice(i,1);
+                    i--;
                     console.log(ns.itemList);
                 }
             }
+
+            $('.incomplete-items').text(ns.itemList.length);
         }
     );
 
